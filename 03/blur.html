@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>blur</title>
+  <style>
+    .error {
+      background-color: pink;
+    }
+
+    .success {
+      background-color: lightgreen;
+    }
+  </style>
+  <script>
+    function handleBlur(el) { // el には onBlur が発火した input 要素の情報が入ってきます
+      if (el.value === '') {
+        el.classList.remove('success')
+        el.classList.add('error')
+      } else {
+        el.classList.remove('error')
+        el.classList.add('success')
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div>
+    <input class="required" type="text" name="text1" onBlur="handleBlur(this)" />
+  </div>
+  <div>
+    <input class="required" type="text" name="text2" onBlur="handleBlur(this)" />
+  </div>
+</body>
+
+</html>

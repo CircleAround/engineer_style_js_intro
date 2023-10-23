@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>scroll</title>
+  <style>
+    .container {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background-color: #999;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+    }
+
+    .slide-in {
+      opacity: 0;
+
+      /* .slide-in.show との差分をアニメーションします */
+      transition: all 600ms ease-out;
+
+      /* 左に少しズレており、かつ少し回転しています */
+      transform: translate3d(-100px, 0px, 0px) rotate(10deg);
+    }
+
+    .slide-in.show {
+      opacity: 1;
+
+      /* ズレと回転はありません */
+      transform: translate3d(0px, 0px, 0px) rotate(0);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <h1>スクロールのアニメーション</h1>
+      <p>スクロールすると要素が回転しながらフェードインして表示されます。</p>
+      <p>.slide-inクラスのtransformの部分を書き換えると色々な動きが試せるでしょう。</p>
+    </div>
+    <div>
+      <div class="card slide-in">
+        <h2>カード1</h2>
+        <p>
+          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        </p>
+        <p>
+          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        </p>
+      </div>
+      <div class="card slide-in">
+        <h2>カード2</h2>
+        <p>
+          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        </p>
+        <p>
+          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        </p>
+      </div>
+      <div class="card slide-in">
+        <h2>カード3</h2>
+        <p>
+          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        </p>
+        <p>
+          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        </p>
+      </div>
+      <div class="card slide-in">
+        <h2>カード4</h2>
+        <p>
+          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        </p>
+        <p>
+          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+    // スクロールイベントを捕まえるには window.addEventListener('scroll', [関数]) を使います
+    window.addEventListener('scroll', function () {
+      // スクロールするたびにこの中身が実行されます
+
+      // slide-in クラスの要素を全部取得して順番に処理します
+      for (const el of document.querySelectorAll('.slide-in')) {
+        const top = el.getBoundingClientRect().top; // 要素の上端のY座標を変数 top として取得します
+        if (top < window.innerHeight - 100) {
+          el.classList.add('show'); // 要素が画面内に入っていたら show クラスを付けます
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

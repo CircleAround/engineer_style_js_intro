@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>02</title>
+  <script>
+    function handleClick() { // --- [1]
+      document.querySelector('h1').style.border = 'solid red 3px';
+    }
+  </script>
+</head>
+
+<body>
+  <h1>タイトル</h1>
+  <div onClick="handleClick()">クリックしてください</div> <!-- [2] -->
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>mouseover</title>
+  <style>
+    .hint {
+      display: none;
+    }
+
+    .hint.active {
+      display: revert;
+    }
+  </style>
+  <script>
+    function handleOver() {
+      document.querySelector('.hint').classList.add('active');
+    }
+    function handleOut() {
+      document.querySelector('.hint').classList.remove('active');
+    }
+  </script>
+</head>
+
+<body>
+  <input type="text" onMouseover="handleOver()" onMouseout="handleOut()" />
+  <div class="hint">入力必須: 好きな食べ物を入力してください</div>
+</body>
+
+</html>
